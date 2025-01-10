@@ -1,12 +1,22 @@
-import { Statistics } from "./Statistics";
 import pilot from "../assets/pilot.png";
+import { FlipWords } from "./ui/flip-words";
 
 export const About = () => {
   return (
     <section
       id="about"
-      className="container py-24 sm:py-32"
+      className="container py-18 sm:py-24"
     >
+
+    {/* quote */}
+<div className="h-[20rem] flex justify-center items-center px-5 sm:px-5 md:px-30 lg:px-40">
+    <div className="text-4xl sm:text-4xl md:text-5xl lg:text-5xl sm:w-full md:w-fit lg:w-fit mx-auto font-bold text-neutral-600 dark:text-neutral-400">
+        Bringing your <span className="inline bg-gradient-to-r from-[#FF6F61] via-[#FF8A5B] to-[#FFB65C] text-transparent bg-clip-text"> visions </span> to life with <span className="inline bg-gradient-to-r from-[#FFB65C] via-[#FF8A5B] to-[#FF6F61] text-transparent bg-clip-text"> expert </span> services in
+        <br/><FlipWords words={['3D Design', '2D Layout', 'Modeling and Drafting', 'Machine Design', 'Product Rendering & Animation', 'Reverse Engineering']}/>
+    </div>
+</div>
+
+
       <div className="bg-muted/50 border rounded-lg py-12">
         <div className="px-6 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
           <img

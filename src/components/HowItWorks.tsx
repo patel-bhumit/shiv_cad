@@ -1,36 +1,40 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { MedalIcon, MapIcon, PlaneIcon, GiftIcon } from "../components/Icons";
+import { Card, CardDescription, CardHeader, CardTitle } from "./ui/card";
 
 interface FeatureProps {
-  icon: JSX.Element;
+  step: number;
   title: string;
   description: string;
 }
 
 const features: FeatureProps[] = [
   {
-    icon: <MedalIcon />,
-    title: "Accessibility",
+    step: 1,
+    title: "Research",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+      "Market trends, user whispers, and competitor insights form our research arsenal.",
   },
   {
-    icon: <MapIcon />,
-    title: "Community",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+    step: 2,
+    title: "Concept",
+    description:"Market trends, user whispers, and competitor insights form our research arsenal."
   },
   {
-    icon: <PlaneIcon />,
-    title: "Scalability",
+    step: 3,
+    title: "Design",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+      "Pixels morph into precision, sketches solidify into steel.",
   },
   {
-    icon: <GiftIcon />,
-    title: "Gamification",
+    step: 4,
+    title: "Development",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+      "Prototypes whisper feedback, simulations sing insights.",
+  },
+  {
+    step: 5,
+    title: "Deliver",
+    description:
+      "From blueprint to masterpiece, we orchestrate seamless delivery.",
   },
 ];
 
@@ -45,27 +49,24 @@ export const HowItWorks = () => {
         <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
           Works{" "}
         </span>
-        Step-by-Step Guide
+        Step-by-Step Process
       </h2>
-      <p className="md:w-3/4 mx-auto mt-4 mb-8 text-xl text-muted-foreground">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis
-        dolor pariatur sit!
-      </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {features.map(({ icon, title, description }: FeatureProps) => (
-          <Card
-            key={title}
-            className="bg-muted/50"
-          >
-            <CardHeader>
-              <CardTitle className="grid gap-4 place-items-center">
-                {icon}
-                {title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>{description}</CardContent>
-          </Card>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+        {features.map(({ title, description, step }: FeatureProps) => (
+          <Card key={title}>
+          <div className=" absolute m-3 bg-primary/20 p-1 rounded-2xl w-8">
+                  {step}
+          </div>
+          <CardHeader className="space-y-1 flex md:flex-row justify-start items-start gap-4">
+            <div>
+              <CardTitle>{title}</CardTitle>
+              <CardDescription className="text-md mt-2">
+                {description}
+              </CardDescription>
+            </div>
+          </CardHeader>
+        </Card>
         ))}
       </div>
     </section>
